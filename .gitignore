@@ -1,0 +1,19 @@
+# Intellij
+.idea/
+out/
+*.iml
+*.iws
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
