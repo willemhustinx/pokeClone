@@ -27,14 +27,14 @@ public class Screen {
         xp -= this.xOffset;
         yp -= this.yOffset;
 
-        int xTile = sprite % (spriteSheetWorld.getWidth() / Game.TILESIZE);
-        int yTile = sprite / (spriteSheetWorld.getWidth() / Game.TILESIZE);
-        int tileOffset = xTile * Game.TILESIZE + (yTile * Game.TILESIZE * spriteSheetWorld.getWidth());
+        int xTile = sprite % (spriteSheetWorld.getWidth() / Game.TILE_SIZE);
+        int yTile = sprite / (spriteSheetWorld.getWidth() / Game.TILE_SIZE);
+        int tileOffset = xTile * Game.TILE_SIZE + (yTile * Game.TILE_SIZE * spriteSheetWorld.getWidth());
 
-        for (int y = 0; y < Game.TILESIZE; y++) {
+        for (int y = 0; y < Game.TILE_SIZE; y++) {
             int ys = y;
             if (y + yp < 0 || y + yp >= this.height) continue;
-            for (int x = 0; x < Game.TILESIZE; x++) {
+            for (int x = 0; x < Game.TILE_SIZE; x++) {
                 int xs = x;
                 if (x + xp < 0 || x + xp >= this.width) continue;
                 int color = spriteSheetWorld.getPixels()[xs + ys * spriteSheetWorld.getWidth() + tileOffset];
@@ -46,25 +46,25 @@ public class Screen {
     public void renderFrame(int x, int y, int w, int h) {
         for (int j = 0; j < h; j++){
             for (int i = 0; i < w; i++) {
-                renderTile((x+i) * Game.TILESIZE, (y+j) * Game.TILESIZE, 2);
+                renderTile((x+i) * Game.TILE_SIZE, (y+j) * Game.TILE_SIZE, 2);
             }
         }
     }
 
     public void renderEntity(int xp, int yp, int sprite, boolean flipVertical) {
-        int xTile = sprite % (spriteSheetEntity.getWidth() / Game.TILESIZE);
-        int yTile = sprite / (spriteSheetEntity.getWidth() / Game.TILESIZE);
-        int tileOffset = xTile * Game.TILESIZE + (yTile * Game.TILESIZE * spriteSheetEntity.getWidth());
+        int xTile = sprite % (spriteSheetEntity.getWidth() / Game.TILE_SIZE);
+        int yTile = sprite / (spriteSheetEntity.getWidth() / Game.TILE_SIZE);
+        int tileOffset = xTile * Game.TILE_SIZE + (yTile * Game.TILE_SIZE * spriteSheetEntity.getWidth());
 
         xp -= this.xOffset;
         yp -= this.yOffset;
 
-        for (int y = 0; y < Game.TILESIZE; y++) {
+        for (int y = 0; y < Game.TILE_SIZE; y++) {
             int ys = y;
-            for (int x = 0; x < Game.TILESIZE; x++) {
+            for (int x = 0; x < Game.TILE_SIZE; x++) {
                 int xs = x;
                 if (flipVertical) {
-                    xs = (Game.TILESIZE - 1) - x;
+                    xs = (Game.TILE_SIZE - 1) - x;
                 }
                 int color = spriteSheetEntity.getPixels()[xs + ys * spriteSheetEntity.getWidth() + tileOffset];
                 if (color != 0) {

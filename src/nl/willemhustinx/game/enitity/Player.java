@@ -68,7 +68,7 @@ public class Player extends Entity {
 
 
     private Point getCurrentTile() {
-        int tileSize = Game.TILESIZE;
+        int tileSize = Game.TILE_SIZE;
         int tileX = this.x / tileSize;
         int tileY = this.y / tileSize;
         return new Point(tileX, tileY);
@@ -132,7 +132,7 @@ public class Player extends Entity {
     }
 
     private boolean justReachedDestination() {
-        int tileSize = Game.TILESIZE;
+        int tileSize = Game.TILE_SIZE;
         int destX = this.destination.x * tileSize;
         int destY = this.destination.y * tileSize;
 

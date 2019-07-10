@@ -27,11 +27,11 @@ public class SpriteSheet {
     }
 
     public BufferedImage getSprite(int x, int y) {
-        return this.image.getSubimage(x * Game.TILESIZE, y * Game.TILESIZE, Game.TILESIZE, Game.TILESIZE);
+        return this.image.getSubimage(x * Game.TILE_SIZE, y * Game.TILE_SIZE, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
     public BufferedImage getFlippedSprite(int x, int y) {
-        return this.image.getSubimage(x * Game.TILESIZE, y * Game.TILESIZE, Game.TILESIZE, Game.TILESIZE);
+        return this.image.getSubimage(x * Game.TILE_SIZE, y * Game.TILE_SIZE, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
     public int getWidth() {

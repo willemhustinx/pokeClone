@@ -13,7 +13,7 @@ public abstract class Tile {
     }
 
     public void render(Screen screen, int x, int y) {
-        screen.renderTile(x * Game.TILESIZE, y * Game.TILESIZE, this.sprite);
+        screen.renderTile(x * Game.TILE_SIZE, y * Game.TILE_SIZE, this.sprite);
     }
 
     public void tick() {

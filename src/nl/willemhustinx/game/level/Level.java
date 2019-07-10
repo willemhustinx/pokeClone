@@ -14,7 +14,7 @@ public class Level {
     private int width;
     private int height;
 
-    private List<Entity> entities = new ArrayList<Entity>();
+    private List<Entity> entities = new ArrayList<>();
     private Player player;
 
     public Level() {
@@ -42,12 +42,6 @@ public class Level {
     }
 
     public void renderEntities(Screen screen, int xScroll, int yScroll) {
-        /*
-        int xo = xScroll >> 4;
-        int yo = yScroll >> 4;
-        int w = (screen.getWidth() + 15) >> 4;
-        int h = (screen.getHeight() + 15) >> 4;
-        */
 
         screen.setOffset(xScroll, yScroll);
 
