@@ -51,7 +51,7 @@ public class InputHandler implements KeyListener {
         if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
             right.toggle(pressed);
         }
-        if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
+        if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
             menu.toggle(pressed);
         }
     }

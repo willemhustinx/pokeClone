@@ -146,7 +146,6 @@ public class Player extends Entity {
     }
 
     public void render(Screen screen) {
-
         if (isMoving()) {
             if (this.lastMove == Direction.DOWN) {
                 int imageToRender = (this.walkDist / 8) % 4;

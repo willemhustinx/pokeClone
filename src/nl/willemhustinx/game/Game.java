@@ -5,6 +5,7 @@ import nl.willemhustinx.game.grafics.Screen;
 import nl.willemhustinx.game.grafics.SpriteSheet;
 import nl.willemhustinx.game.input.InputHandler;
 import nl.willemhustinx.game.level.Level;
+import nl.willemhustinx.game.menu.Menu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,6 +25,7 @@ public class Game extends Canvas implements Runnable {
     private Level level;
     private Player player;
     private Screen screen;
+    private Menu menu;
 
     private InputHandler inputHandler;
 
@@ -90,6 +92,7 @@ public class Game extends Canvas implements Runnable {
             if (System.currentTimeMillis() - lastTimer1 > 1000) {
                 lastTimer1 += 1000;
                 System.out.println(ticks + " ticks, " + frames + " fps");
+
                 frames = 0;
                 ticks = 0;
             }
@@ -108,8 +111,14 @@ public class Game extends Canvas implements Runnable {
             return;
         }
 
-        this.level.render(this.screen);
-        this.player.render(this.screen);
+        int xScroll = this.player.getX() - (WIDTH /2);
+        int yScroll = this.player.getY() - (HEIGHT /2);
+
+        this.level.renderBackground(this.screen, xScroll, yScroll);
+        this.level.renderEntities(this.screen, xScroll, yScroll);
+        //this.player.render(this.screen);
+        //this.menu.renderBackground(this.screen);
+        //System.out.println("x: " + this.player.getX() + " y: " + this.player.getY());
 
         for (int y = 0; y < this.screen.getHeight(); y++) {
             for (int x = 0; x < this.screen.getWidth(); x++) {
@@ -140,5 +149,13 @@ public class Game extends Canvas implements Runnable {
 
         this.level = new Level();
         this.player = new Player(3 * Game.TILESIZE, 3 * Game.TILESIZE, level, inputHandler);
+        this.level.add(player);
+
+        setMenu(new Menu());
+    }
+
+    private void setMenu(Menu menu){
+        this.menu = menu;
+        if (menu != null) menu.init(this, inputHandler);
     }
 }

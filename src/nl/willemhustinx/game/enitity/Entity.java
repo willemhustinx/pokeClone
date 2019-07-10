@@ -17,4 +17,12 @@ public abstract class Entity {
     public abstract void tick();
 
     public abstract void render(Screen screen);
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
