@@ -17,7 +17,7 @@ public class Game extends Canvas implements Runnable {
     public static final String NAME = "Pokémon";
     public static final int SCREEN_HEIGHT = 144;
     public static final int SCREEN_WIDTH = 160;
-    public static final int SCALE = 3;
+    public static final int SCALE = 4;
     public static final int TILE_SIZE = 16;
     private boolean running = false;
 
